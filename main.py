@@ -19,18 +19,25 @@ Examples:
   python main.py tasks.txt view
   python main.py tasks.txt add "Call mom" remove "Take out trash" view""")
         sys.exit()
+    
     if len(sys.argv) < 2:
         raise IndexError("Insufficient arguments provided!")
+    
     if len(sys.argv) < 3:
         sys.exit()
+
     ruta_del_archivo = sys.argv[1]
     elementos_de_lista = read_todo_file(ruta_del_archivo)
-    accion_a_realizar = sys.argv[2]
-    #print(f"Command-line arguments:\n{ruta_del_archivo}\n")
+
+    i = 2
+    accion_a_realizar = sys.argv[i]
+
     if accion_a_realizar == "view":
         print("Task:")
         for elemento in elementos_de_lista:
             print(elemento)
+        i += 1
+
     elif accion_a_realizar == "add":
         if len(sys.argv) < 4:
             raise IndexError('Task description required for "add".')
@@ -38,6 +45,8 @@ Examples:
         elemento_a_agregar = sys.argv[3]
         elementos_de_lista.append(elemento_a_agregar)
         print(f'Task "{elemento_a_agregar}" added.')
+        i += 2
+
     elif accion_a_realizar == "remove":
         if len(sys.argv) < 4:
             raise IndexError('Task description required for "remove".')
