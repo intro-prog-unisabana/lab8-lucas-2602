@@ -13,6 +13,6 @@ def read_todo_file(file_path):
 def write_todo_file(file_path, tasks):
     """Writes tasks to a file, one per line."""
     # TODO: Implementar escritura de tareas según README.md
-    with open(file_path, 'w') as file:
+    with open(file_path, 'a') as file:
         for elemento in tasks:
             file.write(elemento + "\n")

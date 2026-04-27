@@ -10,12 +10,17 @@ try:
     ruta_del_archivo = sys.argv[1]
     try:
         accion_a_realizar = sys.argv[2]
+        comando = sys.argv[3]
         #print(f"Command-line arguments:\n{ruta_del_archivo}\n")
         if accion_a_realizar == "view":
             elementos_de_lista = read_todo_file(ruta_del_archivo)
             print("Task:")
             for elemento in elementos_de_lista:
                 print(elemento)
+        elif comando == "add":
+            elemento_a_agregar = sys.argv[4]
+            write_todo_file(elemento_a_agregar)
+
         else:
             raise ValueError("Command not found!")
     except IndexError:
