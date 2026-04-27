@@ -6,7 +6,7 @@ Implementa una CLI que calcule carga por punto de soporte.
 # TODO: Implementar según README.md
 import sys
 if len(sys.argv) != 3:
-    print("Error: Cannot divide by zero! Supports must be greater than zero.")
+    print("Error: Invalid input! Enter numeric values only.")
 else:
     try:
         total_load = float(sys.argv[1])
