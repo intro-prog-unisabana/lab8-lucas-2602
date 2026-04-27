@@ -30,40 +30,47 @@ Examples:
     elementos_de_lista = read_todo_file(ruta_del_archivo)
 
     i = 2
-    accion_a_realizar = sys.argv[i]
 
-    if accion_a_realizar == "view":
-        print("Task:")
-        for elemento in elementos_de_lista:
-            print(elemento)
-        i += 1
+    while i < len(sys.argv):
 
-    elif accion_a_realizar == "add":
-        if len(sys.argv) < 4:
-            raise IndexError('Task description required for "add".')
+        accion_a_realizar = sys.argv[i]
+
+        if accion_a_realizar == "view":
+            print("Task:")
+            for elemento in elementos_de_lista:
+                print(elemento)
+
+            i += 1
+
+        elif accion_a_realizar == "add":
+            if len(sys.argv) < 4:
+                raise IndexError('Task description required for "add".')
         
-        elemento_a_agregar = sys.argv[3]
-        elementos_de_lista.append(elemento_a_agregar)
-        print(f'Task "{elemento_a_agregar}" added.')
-        i += 2
+            elemento_a_agregar = sys.argv[i + 1]
+            elementos_de_lista.append(elemento_a_agregar)
+            print(f'Task "{elemento_a_agregar}" added.')
 
-    elif accion_a_realizar == "remove":
-        if len(sys.argv) < 4:
-            raise IndexError('Task description required for "remove".')
+            i += 2
+
+        elif accion_a_realizar == "remove":
+            if len(sys.argv) < 4:
+                raise IndexError('Task description required for "remove".')
         
-        elemento_a_eliminar = sys.argv[3]
+            elemento_a_eliminar = sys.argv[i + 1]
 
-        try:
-            elementos_de_lista.remove(elemento_a_eliminar)
-            print(f'Task "{elemento_a_eliminar}" remove.')
-        except ValueError:
-            print(f'Task "{elemento_a_eliminar}" not found.')
-            
-        i += 2
+            try:
+                elementos_de_lista.remove(elemento_a_eliminar)
+                print(f'Task "{elemento_a_eliminar}" remove.')
+            except ValueError:
+                print(f'Task "{elemento_a_eliminar}" not found.')
 
-    else:
-        raise ValueError("Command not found!")
-    
+            i += 2
+
+        else:
+            raise ValueError("Command not found!")
+
+    write_todo_file(ruta_del_archivo, elementos_de_lista)
+
 except IndexError as error:
     print(error)
 
