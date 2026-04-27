@@ -60,7 +60,7 @@ Examples:
 
             try:
                 elementos_de_lista.remove(elemento_a_eliminar)
-                print(f'Task "{elemento_a_eliminar}" remove.')
+                print(f'Task "{elemento_a_eliminar}" removed.')
             except ValueError:
                 print(f'Task "{elemento_a_eliminar}" not found.')
 
