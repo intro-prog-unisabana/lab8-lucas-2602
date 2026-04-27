@@ -36,7 +36,7 @@ Examples:
         accion_a_realizar = sys.argv[i]
 
         if accion_a_realizar == "view":
-            print("Task:")
+            print("Tasks:")
             for elemento in elementos_de_lista:
                 print(elemento)
 
