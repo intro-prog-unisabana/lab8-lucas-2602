@@ -21,7 +21,7 @@ Examples:
         sys.exit()
     
     if len(sys.argv) < 2:
-        raise IndexError("Insufficient arguments provided!")
+        raise IndexError
     
     if len(sys.argv) < 3:
         sys.exit()
