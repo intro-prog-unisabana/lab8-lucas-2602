@@ -52,14 +52,20 @@ Examples:
             raise IndexError('Task description required for "remove".')
         
         elemento_a_eliminar = sys.argv[3]
+
         try:
             elementos_de_lista.remove(elemento_a_eliminar)
             print(f'Task "{elemento_a_eliminar}" remove.')
         except ValueError:
             print(f'Task "{elemento_a_eliminar}" not found.')
+            
+        i += 2
+
     else:
         raise ValueError("Command not found!")
+    
 except IndexError as error:
     print(error)
+
 except ValueError as error:
     print(error)
